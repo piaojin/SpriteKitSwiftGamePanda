@@ -47,6 +47,8 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
     
     var score : CGFloat = 0.0
     
+    var distance : CGFloat = 0.0
+    
     var moveSpeed : CGFloat = 15.0
     
     var lastDis : CGFloat = 0.0
@@ -85,7 +87,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.addChild(self.platformFactory)
         
         //添加熊猫🐼
-        self.panda.position = CGPoint(x: -PJGameWidth, y: self.platformFactory.position.y + self.panda.size.height)
+        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: self.platformFactory.position.y + self.panda.size.height)
         self.panda.anchorPoint = CGPoint(x: 0.0, y: 1.0)
         self.panda.zPosition = 3.0
         self.addChild(self.panda)
@@ -101,6 +103,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         
         self.moveSpeed = 15.0
         self.score = 0.0
+        self.distance = 0.0
         self.gameState = .gameRun
         self.lastDis = 0.0
         
@@ -109,7 +112,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.platformFactory.removePlatforms()
         self.platformFactory.createPlatform(midNum: 3, x: PJGameWidth, y: 0)
         
-        self.panda.position = CGPoint(x: -PJGameWidth, y: PJGameHeight / 2.0 + self.panda.size.height)
+        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: PJGameHeight / 2.0 + self.panda.size.height)
         self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 50)
         
         self.panda.physicsBody?.allowsRotation = false
@@ -139,20 +142,20 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         // Called before each frame is rendered
         
         if self.gameState == .gameRun{
-            self.score += self.moveSpeed
-            self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.score)"
+            self.distance += self.moveSpeed
+            self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
             
             var speed : CGFloat = self.moveSpeed
-            if self.score >= GameSource.a {
+            if self.distance >= GameSource.a {
                 speed = GameSource.speedA
             }
-            if self.score >= GameSource.b{
+            if self.distance >= GameSource.b{
                 speed = GameSource.speedB
             }
-            if self.score >= GameSource.c{
+            if self.distance >= GameSource.c{
                 speed = GameSource.speedC
             }
-            if self.score >= GameSource.d{
+            if self.distance >= GameSource.d{
                 speed = GameSource.speedD
             }
             
@@ -171,6 +174,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
     
     func updateDis(lastDis: CGFloat) {
         self.lastDis = lastDis
+        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: self.panda.position.y)
     }
     
     /// MARK: 物理系统代理
@@ -183,9 +187,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             }else{
                 self.gameOver()
             }
-        }
-        
-        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.platform{
+        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.platform{
             self.panda.run()
             if (self.moveSpeed - GameSource.speedB) >= 0{
                 self.platformFactory.midCount = 2
@@ -193,6 +195,14 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
                 contact.bodyB.isDynamic = true
                 contact.bodyB.allowsRotation = true
             }
+        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.apple{
+            if contact.bodyB.categoryBitMask == BitMaskType.apple{
+                contact.bodyB.node?.removeFromParent()
+            }else{
+                contact.bodyA.node?.removeFromParent()
+            }
+            self.score += 10
+            self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
         }
     }
     
