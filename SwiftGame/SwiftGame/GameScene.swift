@@ -144,6 +144,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         if self.gameState == .gameRun{
             self.distance += self.moveSpeed
             self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
+            self.scoreLabel.position.x = -PJGameWidth + self.scoreLabel.frame.size.width
             
             var speed : CGFloat = self.moveSpeed
             if self.distance >= GameSource.a {
@@ -174,28 +175,37 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
     
     func updateDis(lastDis: CGFloat) {
         self.lastDis = lastDis
-        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: self.panda.position.y)
+        self.panda.position.x = -PJGameWidth + 10
     }
     
     /// MARK: 物理系统代理
     func didBegin(_ contact: SKPhysicsContact) {
         //碰撞了
-        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.scene{
+        
+        switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
+        case BitMaskType.panda | BitMaskType.scene:
             self.isFirstStart = !self.isFirstStart
             if self.isFirstStart{
                 self.gameOverLabel.isHidden = true
             }else{
                 self.gameOver()
             }
-        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.platform{
+            break
+        case BitMaskType.panda | BitMaskType.platform:
             self.panda.run()
             if (self.moveSpeed - GameSource.speedB) >= 0{
                 self.platformFactory.midCount = 2
                 self.platformFactory.M = 80
-                contact.bodyB.isDynamic = true
-                contact.bodyB.allowsRotation = true
+                if contact.bodyB.categoryBitMask == BitMaskType.platform{
+                    contact.bodyB.isDynamic = true
+                    contact.bodyB.allowsRotation = true
+                }else{
+                    contact.bodyA.isDynamic = true
+                    contact.bodyA.allowsRotation = true
+                }
             }
-        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.apple{
+            break
+        case BitMaskType.panda | BitMaskType.apple:
             if contact.bodyB.categoryBitMask == BitMaskType.apple{
                 contact.bodyB.node?.removeFromParent()
             }else{
@@ -203,7 +213,35 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             }
             self.score += 10
             self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
+            break
+        default:
+            break
         }
+        
+//        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.scene{
+//            self.isFirstStart = !self.isFirstStart
+//            if self.isFirstStart{
+//                self.gameOverLabel.isHidden = true
+//            }else{
+//                self.gameOver()
+//            }
+//        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.platform{
+//            self.panda.run()
+//            if (self.moveSpeed - GameSource.speedB) >= 0{
+//                self.platformFactory.midCount = 2
+//                self.platformFactory.M = 80
+//                contact.bodyB.isDynamic = true
+//                contact.bodyB.allowsRotation = true
+//            }
+//        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.apple{
+//            if contact.bodyB.categoryBitMask == BitMaskType.apple{
+//                contact.bodyB.node?.removeFromParent()
+//            }else{
+//                contact.bodyA.node?.removeFromParent()
+//            }
+//            self.score += 10
+//            self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
+//        }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
