@@ -56,7 +56,8 @@ class Panda: SKSpriteNode {
         self.physicsBody?.restitution = 0.1
         //设置可以跟谁碰撞
         self.physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.apple
-//        self.physicsBody?.collisionBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.apple
+        //定义了哪种物体会碰撞到自己
+        self.physicsBody?.collisionBitMask = BitMaskType.scene | BitMaskType.platform
         
         
         //默认跑

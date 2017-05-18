@@ -87,7 +87,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.addChild(self.platformFactory)
         
         //添加熊猫🐼
-        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: self.platformFactory.position.y + self.panda.size.height)
+        self.panda.position = CGPoint(x: -PJGameWidth + 20, y: self.platformFactory.position.y + self.panda.size.height)
         self.panda.anchorPoint = CGPoint(x: 0.0, y: 1.0)
         self.panda.zPosition = 3.0
         self.addChild(self.panda)
@@ -112,7 +112,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.platformFactory.removePlatforms()
         self.platformFactory.createPlatform(midNum: 3, x: PJGameWidth, y: 0)
         
-        self.panda.position = CGPoint(x: -PJGameWidth + 10, y: PJGameHeight / 2.0 + self.panda.size.height)
+        self.panda.position = CGPoint(x: -PJGameWidth + 20, y: PJGameHeight / 2.0 + self.panda.size.height)
         self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 50)
         
         self.panda.physicsBody?.allowsRotation = false
@@ -175,7 +175,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
     
     func updateDis(lastDis: CGFloat) {
         self.lastDis = lastDis
-        self.panda.position.x = -PJGameWidth + 10
+        self.panda.position.x = -PJGameWidth + 20
     }
     
     /// MARK: 物理系统代理
@@ -183,6 +183,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         //碰撞了
         
         switch contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask {
+            //熊猫掉出场景外
         case BitMaskType.panda | BitMaskType.scene:
             self.isFirstStart = !self.isFirstStart
             if self.isFirstStart{
@@ -191,6 +192,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
                 self.gameOver()
             }
             break
+            //熊猫掉到草块上
         case BitMaskType.panda | BitMaskType.platform:
             self.panda.run()
             if (self.moveSpeed - GameSource.speedB) >= 0{
@@ -205,6 +207,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
                 }
             }
             break
+            //熊猫吃到苹果
         case BitMaskType.panda | BitMaskType.apple:
             if contact.bodyB.categoryBitMask == BitMaskType.apple{
                 contact.bodyB.node?.removeFromParent()
@@ -217,31 +220,6 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         default:
             break
         }
-        
-//        if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.scene{
-//            self.isFirstStart = !self.isFirstStart
-//            if self.isFirstStart{
-//                self.gameOverLabel.isHidden = true
-//            }else{
-//                self.gameOver()
-//            }
-//        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.platform{
-//            self.panda.run()
-//            if (self.moveSpeed - GameSource.speedB) >= 0{
-//                self.platformFactory.midCount = 2
-//                self.platformFactory.M = 80
-//                contact.bodyB.isDynamic = true
-//                contact.bodyB.allowsRotation = true
-//            }
-//        }else if contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask == BitMaskType.panda | BitMaskType.apple{
-//            if contact.bodyB.categoryBitMask == BitMaskType.apple{
-//                contact.bodyB.node?.removeFromParent()
-//            }else{
-//                contact.bodyA.node?.removeFromParent()
-//            }
-//            self.score += 10
-//            self.scoreLabel.text = "🐷🐷🐷🐷🐷🐷:\(self.distance)分数:\(self.score)"
-//        }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
