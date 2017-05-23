@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2368CE1ECEDA8100AEFF11 /* p.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CA2368CD1ECEDA8100AEFF11 /* p.atlas */; };
+		CA2368D01ECEE7FB00AEFF11 /* Bomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2368CF1ECEE7FB00AEFF11 /* Bomb.swift */; };
 		CA2E63DE1EC3F29E00A9144F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2E63DD1EC3F29E00A9144F /* AppDelegate.swift */; };
 		CA2E63E01EC3F29E00A9144F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CA2E63DF1EC3F29E00A9144F /* GameScene.sks */; };
 		CA2E63E21EC3F29E00A9144F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = CA2E63E11EC3F29E00A9144F /* Actions.sks */; };
@@ -17,13 +19,14 @@
 		CA2E63EE1EC3F29E00A9144F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2E63EC1EC3F29E00A9144F /* LaunchScreen.storyboard */; };
 		CA2E63F91EC3F29E00A9144F /* SwiftGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2E63F81EC3F29E00A9144F /* SwiftGameTests.swift */; };
 		CA2E64041EC3F29E00A9144F /* SwiftGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2E64031EC3F29E00A9144F /* SwiftGameUITests.swift */; };
+		CA8AE3071ED2EE0400335C40 /* bombo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE3061ED2EE0400335C40 /* bombo.atlas */; };
+		CA8AE30B1ED4021D00335C40 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AE30A1ED4021D00335C40 /* SoundManager.swift */; };
+		CA8AE30D1ED4091D00335C40 /* boom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE30C1ED4091D00335C40 /* boom.mp3 */; };
+		CA8AE30F1ED4159700335C40 /* stupid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE30E1ED4159700335C40 /* stupid.mp3 */; };
 		CAE518871EC55A94007BBF4A /* jump.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518781EC55A94007BBF4A /* jump.atlas */; };
 		CAE518881EC55A94007BBF4A /* jump_effect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518791EC55A94007BBF4A /* jump_effect.atlas */; };
 		CAE518891EC55A94007BBF4A /* roll.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187A1EC55A94007BBF4A /* roll.atlas */; };
 		CAE5188A1EC55A94007BBF4A /* run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187B1EC55A94007BBF4A /* run.atlas */; };
-		CAE5188B1EC55A94007BBF4A /* background_f0.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187D1EC55A94007BBF4A /* background_f0.png */; };
-		CAE5188C1EC55A94007BBF4A /* background_f1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187E1EC55A94007BBF4A /* background_f1.png */; };
-		CAE5188D1EC55A94007BBF4A /* apple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAE518801EC55A94007BBF4A /* apple.mp3 */; };
 		CAE5188E1EC55A94007BBF4A /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAE518811EC55A94007BBF4A /* background.mp3 */; };
 		CAE5188F1EC55A94007BBF4A /* fly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAE518821EC55A94007BBF4A /* fly.mp3 */; };
 		CAE518901EC55A94007BBF4A /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAE518831EC55A94007BBF4A /* hit.mp3 */; };
@@ -58,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA2368CD1ECEDA8100AEFF11 /* p.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = p.atlas; sourceTree = "<group>"; };
+		CA2368CF1ECEE7FB00AEFF11 /* Bomb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bomb.swift; sourceTree = "<group>"; };
 		CA2E63DA1EC3F29E00A9144F /* SwiftGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2E63DD1EC3F29E00A9144F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA2E63DF1EC3F29E00A9144F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -74,13 +79,14 @@
 		CA2E63FF1EC3F29E00A9144F /* SwiftGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2E64031EC3F29E00A9144F /* SwiftGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGameUITests.swift; sourceTree = "<group>"; };
 		CA2E64051EC3F29E00A9144F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA8AE3061ED2EE0400335C40 /* bombo.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bombo.atlas; sourceTree = "<group>"; };
+		CA8AE30A1ED4021D00335C40 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		CA8AE30C1ED4091D00335C40 /* boom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boom.mp3; sourceTree = "<group>"; };
+		CA8AE30E1ED4159700335C40 /* stupid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stupid.mp3; sourceTree = "<group>"; };
 		CAE518781EC55A94007BBF4A /* jump.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump.atlas; sourceTree = "<group>"; };
 		CAE518791EC55A94007BBF4A /* jump_effect.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump_effect.atlas; sourceTree = "<group>"; };
 		CAE5187A1EC55A94007BBF4A /* roll.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = roll.atlas; sourceTree = "<group>"; };
 		CAE5187B1EC55A94007BBF4A /* run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = run.atlas; sourceTree = "<group>"; };
-		CAE5187D1EC55A94007BBF4A /* background_f0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_f0.png; sourceTree = "<group>"; };
-		CAE5187E1EC55A94007BBF4A /* background_f1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_f1.png; sourceTree = "<group>"; };
-		CAE518801EC55A94007BBF4A /* apple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = apple.mp3; sourceTree = "<group>"; };
 		CAE518811EC55A94007BBF4A /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		CAE518821EC55A94007BBF4A /* fly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fly.mp3; sourceTree = "<group>"; };
 		CAE518831EC55A94007BBF4A /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
@@ -195,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				CAE518771EC55A94007BBF4A /* atlas */,
-				CAE5187C1EC55A94007BBF4A /* background */,
 				CAE5187F1EC55A94007BBF4A /* sounds */,
 			);
 			path = Resources;
@@ -204,6 +209,8 @@
 		CAE518771EC55A94007BBF4A /* atlas */ = {
 			isa = PBXGroup;
 			children = (
+				CA8AE3061ED2EE0400335C40 /* bombo.atlas */,
+				CA2368CD1ECEDA8100AEFF11 /* p.atlas */,
 				CAE518781EC55A94007BBF4A /* jump.atlas */,
 				CAE518791EC55A94007BBF4A /* jump_effect.atlas */,
 				CAE5187A1EC55A94007BBF4A /* roll.atlas */,
@@ -212,19 +219,11 @@
 			path = atlas;
 			sourceTree = "<group>";
 		};
-		CAE5187C1EC55A94007BBF4A /* background */ = {
-			isa = PBXGroup;
-			children = (
-				CAE5187D1EC55A94007BBF4A /* background_f0.png */,
-				CAE5187E1EC55A94007BBF4A /* background_f1.png */,
-			);
-			path = background;
-			sourceTree = "<group>";
-		};
 		CAE5187F1EC55A94007BBF4A /* sounds */ = {
 			isa = PBXGroup;
 			children = (
-				CAE518801EC55A94007BBF4A /* apple.mp3 */,
+				CA8AE30E1ED4159700335C40 /* stupid.mp3 */,
+				CA8AE30C1ED4091D00335C40 /* boom.mp3 */,
 				CAE518811EC55A94007BBF4A /* background.mp3 */,
 				CAE518821EC55A94007BBF4A /* fly.mp3 */,
 				CAE518831EC55A94007BBF4A /* hit.mp3 */,
@@ -238,6 +237,7 @@
 		CAE518941EC55AED007BBF4A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				CA8AE30A1ED4021D00335C40 /* SoundManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -246,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE518961EC55B2D007BBF4A /* Panda.swift */,
+				CA2368CF1ECEE7FB00AEFF11 /* Bomb.swift */,
 			);
 			path = Role;
 			sourceTree = "<group>";
@@ -413,9 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA2E63E91EC3F29E00A9144F /* Main.storyboard in Resources */,
-				CAE5188D1EC55A94007BBF4A /* apple.mp3 in Resources */,
 				CAE5188F1EC55A94007BBF4A /* fly.mp3 in Resources */,
-				CAE5188B1EC55A94007BBF4A /* background_f0.png in Resources */,
 				CAE518871EC55A94007BBF4A /* jump.atlas in Resources */,
 				CA2E63E01EC3F29E00A9144F /* GameScene.sks in Resources */,
 				CAE5188A1EC55A94007BBF4A /* run.atlas in Resources */,
@@ -426,9 +425,12 @@
 				CAE518931EC55A94007BBF4A /* lose.mp3 in Resources */,
 				CAE518901EC55A94007BBF4A /* hit.mp3 in Resources */,
 				CAE518881EC55A94007BBF4A /* jump_effect.atlas in Resources */,
+				CA8AE30F1ED4159700335C40 /* stupid.mp3 in Resources */,
 				CA2E63EE1EC3F29E00A9144F /* LaunchScreen.storyboard in Resources */,
-				CAE5188C1EC55A94007BBF4A /* background_f1.png in Resources */,
 				CAE518891EC55A94007BBF4A /* roll.atlas in Resources */,
+				CA8AE3071ED2EE0400335C40 /* bombo.atlas in Resources */,
+				CA2368CE1ECEDA8100AEFF11 /* p.atlas in Resources */,
+				CA8AE30D1ED4091D00335C40 /* boom.mp3 in Resources */,
 				CA2E63E21EC3F29E00A9144F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +460,9 @@
 				CAE518B01ECB0590007BBF4A /* GameSource.swift in Sources */,
 				CAE5189A1EC59CF8007BBF4A /* Platform.swift in Sources */,
 				CA2E63E41EC3F29E00A9144F /* GameScene.swift in Sources */,
+				CA8AE30B1ED4021D00335C40 /* SoundManager.swift in Sources */,
 				CA2E63E61EC3F29E00A9144F /* GameViewController.swift in Sources */,
+				CA2368D01ECEE7FB00AEFF11 /* Bomb.swift in Sources */,
 				CAE518A81ECAC601007BBF4A /* DistantPlatform.swift in Sources */,
 				CAE518AE1ECADF33007BBF4A /* BitMaskType.swift in Sources */,
 				CAE518AC1ECADF21007BBF4A /* PJConst.swift in Sources */,

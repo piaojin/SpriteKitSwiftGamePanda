@@ -23,4 +23,8 @@ struct BitMaskType {
     static var scene : UInt32 {
         return 1<<3
     }
+    
+    static var bombo : UInt32 {
+        return 1<<4
+    }
 }

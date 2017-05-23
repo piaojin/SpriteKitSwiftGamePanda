@@ -15,7 +15,7 @@ enum ActionState:Int {
 class Panda: SKSpriteNode {
 
     //跑🏃
-    let runAtlas : SKTextureAtlas = SKTextureAtlas(named: "run.atlas")
+    let runAtlas : SKTextureAtlas = SKTextureAtlas(named: "p.atlas")
     var runFrames : [SKTexture] = [SKTexture]()
     
     //跳
@@ -31,13 +31,14 @@ class Panda: SKSpriteNode {
     
     
     init() {
-        let texture = self.runAtlas.textureNamed("panda_run_01")
+//        let texture = self.runAtlas.textureNamed("panda_jump_01")
+        let texture = SKTexture(imageNamed: "panda_jump_01")
         let size = texture.size()
         super.init(texture: texture, color: UIColor.white, size: size)
         
         /// MARK: 初始化所有的动作
         //跑
-        self.initAtlas(name: "panda_run_0", textureFrames: &self.runFrames, atlas: self.runAtlas)
+        self.initAtlas(name: "p_run_0", textureFrames: &self.runFrames, atlas: self.runAtlas)
         //跳
         self.initAtlas(name: "panda_jump_0", textureFrames: &self.jumpFrames, atlas: self.jumpAtlas)
         //滚
@@ -55,10 +56,9 @@ class Panda: SKSpriteNode {
         //设置摩擦力
         self.physicsBody?.restitution = 0.1
         //设置可以跟谁碰撞
-        self.physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.apple
+        self.physicsBody?.contactTestBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.apple | BitMaskType.bombo
         //定义了哪种物体会碰撞到自己
-        self.physicsBody?.collisionBitMask = BitMaskType.scene | BitMaskType.platform
-        
+        self.physicsBody?.collisionBitMask = BitMaskType.scene | BitMaskType.platform | BitMaskType.bombo
         
         //默认跑
         self.run()
@@ -102,7 +102,7 @@ class Panda: SKSpriteNode {
         self.removeAllActions()
         self.actionState = .roll
         self.run(SKAction.animate(with: self.rollFrames, timePerFrame: 0.05),completion: {
-//            self.run()
+
         })
     }
     

@@ -35,14 +35,15 @@ class PlatformFactory: SKNode {
     func createPlatformRandom(){
         //随机中间土块数量
         let midNum : UInt32 = arc4random() % self.midCount + 1
+        
         //随机间距
         let m : UInt32 = arc4random() % 4 + 1
         
         //随机生成苹果
-        let a : UInt32 = arc4random() % 1 + 1
+        let a : UInt32 = arc4random() % 2 + 2
         
         let isAddApple : Bool
-        if a == 1{
+        if a > 2{
             isAddApple = true
         }else{
             isAddApple = false
@@ -86,6 +87,11 @@ class PlatformFactory: SKNode {
             appleSprite.physicsBody?.categoryBitMask = BitMaskType.apple
             appleSprite.physicsBody?.isDynamic = false
             platform.addChild(appleSprite)
+        }else{
+            //加入炸弹💣
+            let bombo = Bombo()
+            bombo.position = CGPoint(x:platform.width / 2.0,y:CGFloat((m + 1) * 50))
+            platform.addChild(bombo)
         }
         
         let tempY = (y - 1) * platform.heigth
@@ -93,8 +99,6 @@ class PlatformFactory: SKNode {
         platform.position = CGPoint(x: x, y: tempY)
         
         self.addChild(platform)
-        
-        
         
         self.delegate?.updateDis(lastDis: platform.width + x)
         
