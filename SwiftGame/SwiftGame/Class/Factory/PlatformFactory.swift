@@ -39,22 +39,15 @@ class PlatformFactory: SKNode {
         //随机间距
         let m : UInt32 = arc4random() % 4 + 1
         
-        //随机生成苹果
-        let a : UInt32 = arc4random() % 2 + 2
-        
-        let isAddApple : Bool
-        if a > 2{
-            isAddApple = true
-        }else{
-            isAddApple = false
-        }
+        //随机生成苹果或炸弹或火柴人
+        let npcCode : UInt32 = arc4random() % 4 + 1
         
         let x : CGFloat = self.sceneWidth + CGFloat(m * self.M)
         let y : CGFloat = CGFloat(arc4random() % 3)
-        self.createPlatform(midNum: Int(midNum), x: x, y: y,isAddApple : isAddApple,m : Int(m))
+        self.createPlatform(midNum: Int(midNum), x: x, y: y,npcCode : npcCode,m : Int(m))
     }
     
-    func createPlatform(midNum:Int,x:CGFloat,y:CGFloat,isAddApple : Bool = false,m : Int = 5){
+    func createPlatform(midNum:Int,x:CGFloat,y:CGFloat,npcCode : UInt32,m : Int = 5){
         let platform = Platform()
         
         let platform_left = SKSpriteNode(texture: self.textureLeft)
@@ -79,7 +72,17 @@ class PlatformFactory: SKNode {
         
         platform.onCreate(arrSprite: arrPlatforms)
         
-        if isAddApple{
+        if npcCode == 1{
+            //加入炸弹💣
+            let bombo = Bombo()
+            bombo.position = CGPoint(x:platform.width / 2.0,y:CGFloat((m + 1) * 40))
+            platform.addChild(bombo)
+        }else if npcCode == 2{
+            //加入火柴人
+            let matchstick = Matchstick()
+            matchstick.position = CGPoint(x:platform.width / 2.0,y:matchstick.size.height / 2.0)
+            platform.addChild(matchstick)
+        }else{
             //加入苹果
             let appleSprite = SKSpriteNode(texture:self.textureApple)
             appleSprite.position = CGPoint(x:platform.width / 2.0,y:CGFloat((m + 1) * 50))
@@ -87,11 +90,6 @@ class PlatformFactory: SKNode {
             appleSprite.physicsBody?.categoryBitMask = BitMaskType.apple
             appleSprite.physicsBody?.isDynamic = false
             platform.addChild(appleSprite)
-        }else{
-            //加入炸弹💣
-            let bombo = Bombo()
-            bombo.position = CGPoint(x:platform.width / 2.0,y:CGFloat((m + 1) * 50))
-            platform.addChild(bombo)
         }
         
         let tempY = (y - 1) * platform.heigth

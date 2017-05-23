@@ -88,7 +88,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.platformFactory.sceneWidth = self.frame.size.height
         self.platformFactory.scenHeight = self.frame.size.width
         self.platformFactory.delegate = self
-        self.platformFactory.createPlatform(midNum: 3, x: -PJGameWidth, y: 0)
+        self.platformFactory.createPlatform(midNum: 3, x: -PJGameWidth, y: 0, npcCode: 3)
         self.platformFactory.zPosition = 2.0
         self.addChild(self.platformFactory)
         
@@ -116,7 +116,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         self.gameOverLabel.isHidden = true
         
         self.platformFactory.removePlatforms()
-        self.platformFactory.createPlatform(midNum: 3, x: PJGameWidth, y: 0)
+        self.platformFactory.createPlatform(midNum: 3, x: PJGameWidth, y: 0, npcCode: 3)
         
         self.panda.position = CGPoint(x: -PJGameWidth + 20, y: PJGameHeight / 2.0 + self.panda.size.height)
         self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 50)
@@ -241,6 +241,24 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
                     bombo.bombo()
                     bombo.parent?.physicsBody?.isDynamic = true
                 }
+            }
+            break
+        case BitMaskType.panda | BitMaskType.matchstick:
+            //熊猫撞到火柴人
+            if contact.bodyB.categoryBitMask == BitMaskType.matchstick{
+                
+                var matchstick : Matchstick
+                
+                if let tempMatchstick = contact.bodyB.node as? Matchstick{
+                    matchstick = tempMatchstick
+                }else{
+                    matchstick = contact.bodyA.node as! Matchstick
+                }
+                
+                matchstick.physicsBody?.isDynamic = true
+                matchstick.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
+                self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
+                matchstick.firePunch()
             }
             break
         default:

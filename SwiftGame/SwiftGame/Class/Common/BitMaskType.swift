@@ -27,4 +27,8 @@ struct BitMaskType {
     static var bombo : UInt32 {
         return 1<<4
     }
+    
+    static var matchstick : UInt32 {
+        return 1<<5
+    }
 }

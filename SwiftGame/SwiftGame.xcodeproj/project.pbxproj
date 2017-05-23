@@ -23,6 +23,8 @@
 		CA8AE30B1ED4021D00335C40 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AE30A1ED4021D00335C40 /* SoundManager.swift */; };
 		CA8AE30D1ED4091D00335C40 /* boom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE30C1ED4091D00335C40 /* boom.mp3 */; };
 		CA8AE30F1ED4159700335C40 /* stupid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE30E1ED4159700335C40 /* stupid.mp3 */; };
+		CA8AE3111ED4359300335C40 /* matchstick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE3101ED4359300335C40 /* matchstick.atlas */; };
+		CA8AE3131ED435CC00335C40 /* Matchstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AE3121ED435CC00335C40 /* Matchstick.swift */; };
 		CAE518871EC55A94007BBF4A /* jump.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518781EC55A94007BBF4A /* jump.atlas */; };
 		CAE518881EC55A94007BBF4A /* jump_effect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518791EC55A94007BBF4A /* jump_effect.atlas */; };
 		CAE518891EC55A94007BBF4A /* roll.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187A1EC55A94007BBF4A /* roll.atlas */; };
@@ -83,6 +85,8 @@
 		CA8AE30A1ED4021D00335C40 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		CA8AE30C1ED4091D00335C40 /* boom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boom.mp3; sourceTree = "<group>"; };
 		CA8AE30E1ED4159700335C40 /* stupid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stupid.mp3; sourceTree = "<group>"; };
+		CA8AE3101ED4359300335C40 /* matchstick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = matchstick.atlas; sourceTree = "<group>"; };
+		CA8AE3121ED435CC00335C40 /* Matchstick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchstick.swift; sourceTree = "<group>"; };
 		CAE518781EC55A94007BBF4A /* jump.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump.atlas; sourceTree = "<group>"; };
 		CAE518791EC55A94007BBF4A /* jump_effect.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump_effect.atlas; sourceTree = "<group>"; };
 		CAE5187A1EC55A94007BBF4A /* roll.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = roll.atlas; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 		CAE518771EC55A94007BBF4A /* atlas */ = {
 			isa = PBXGroup;
 			children = (
+				CA8AE3101ED4359300335C40 /* matchstick.atlas */,
 				CA8AE3061ED2EE0400335C40 /* bombo.atlas */,
 				CA2368CD1ECEDA8100AEFF11 /* p.atlas */,
 				CAE518781EC55A94007BBF4A /* jump.atlas */,
@@ -247,6 +252,7 @@
 			children = (
 				CAE518961EC55B2D007BBF4A /* Panda.swift */,
 				CA2368CF1ECEE7FB00AEFF11 /* Bomb.swift */,
+				CA8AE3121ED435CC00335C40 /* Matchstick.swift */,
 			);
 			path = Role;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				CA2E63E01EC3F29E00A9144F /* GameScene.sks in Resources */,
 				CAE5188A1EC55A94007BBF4A /* run.atlas in Resources */,
 				CAE518921EC55A94007BBF4A /* jump_from_platform.mp3 in Resources */,
+				CA8AE3111ED4359300335C40 /* matchstick.atlas in Resources */,
 				CAE518911EC55A94007BBF4A /* hit_platform.mp3 in Resources */,
 				CAE5188E1EC55A94007BBF4A /* background.mp3 in Resources */,
 				CA2E63EB1EC3F29E00A9144F /* Assets.xcassets in Resources */,
@@ -464,6 +471,7 @@
 				CA2E63E61EC3F29E00A9144F /* GameViewController.swift in Sources */,
 				CA2368D01ECEE7FB00AEFF11 /* Bomb.swift in Sources */,
 				CAE518A81ECAC601007BBF4A /* DistantPlatform.swift in Sources */,
+				CA8AE3131ED435CC00335C40 /* Matchstick.swift in Sources */,
 				CAE518AE1ECADF33007BBF4A /* BitMaskType.swift in Sources */,
 				CAE518AC1ECADF21007BBF4A /* PJConst.swift in Sources */,
 				CAE5189D1EC59D46007BBF4A /* PlatformFactory.swift in Sources */,
