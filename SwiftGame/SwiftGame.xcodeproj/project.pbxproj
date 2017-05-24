@@ -25,6 +25,7 @@
 		CA8AE30F1ED4159700335C40 /* stupid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE30E1ED4159700335C40 /* stupid.mp3 */; };
 		CA8AE3111ED4359300335C40 /* matchstick.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE3101ED4359300335C40 /* matchstick.atlas */; };
 		CA8AE3131ED435CC00335C40 /* Matchstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8AE3121ED435CC00335C40 /* Matchstick.swift */; };
+		CA8AE3171ED477A600335C40 /* firePunch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CA8AE3161ED477A600335C40 /* firePunch.m4a */; };
 		CAE518871EC55A94007BBF4A /* jump.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518781EC55A94007BBF4A /* jump.atlas */; };
 		CAE518881EC55A94007BBF4A /* jump_effect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE518791EC55A94007BBF4A /* jump_effect.atlas */; };
 		CAE518891EC55A94007BBF4A /* roll.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CAE5187A1EC55A94007BBF4A /* roll.atlas */; };
@@ -87,6 +88,7 @@
 		CA8AE30E1ED4159700335C40 /* stupid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stupid.mp3; sourceTree = "<group>"; };
 		CA8AE3101ED4359300335C40 /* matchstick.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = matchstick.atlas; sourceTree = "<group>"; };
 		CA8AE3121ED435CC00335C40 /* Matchstick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchstick.swift; sourceTree = "<group>"; };
+		CA8AE3161ED477A600335C40 /* firePunch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = firePunch.m4a; sourceTree = "<group>"; };
 		CAE518781EC55A94007BBF4A /* jump.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump.atlas; sourceTree = "<group>"; };
 		CAE518791EC55A94007BBF4A /* jump_effect.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jump_effect.atlas; sourceTree = "<group>"; };
 		CAE5187A1EC55A94007BBF4A /* roll.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = roll.atlas; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 		CAE5187F1EC55A94007BBF4A /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CA8AE3161ED477A600335C40 /* firePunch.m4a */,
 				CA8AE30E1ED4159700335C40 /* stupid.mp3 */,
 				CA8AE30C1ED4091D00335C40 /* boom.mp3 */,
 				CAE518811EC55A94007BBF4A /* background.mp3 */,
@@ -437,6 +440,7 @@
 				CAE518891EC55A94007BBF4A /* roll.atlas in Resources */,
 				CA8AE3071ED2EE0400335C40 /* bombo.atlas in Resources */,
 				CA2368CE1ECEDA8100AEFF11 /* p.atlas in Resources */,
+				CA8AE3171ED477A600335C40 /* firePunch.m4a in Resources */,
 				CA8AE30D1ED4091D00335C40 /* boom.mp3 in Resources */,
 				CA2E63E21EC3F29E00A9144F /* Actions.sks in Resources */,
 			);

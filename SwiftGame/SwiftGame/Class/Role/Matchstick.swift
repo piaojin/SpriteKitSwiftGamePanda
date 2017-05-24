@@ -26,6 +26,7 @@ class Matchstick : SKSpriteNode{
         //设置碰撞标识
         self.physicsBody?.categoryBitMask = BitMaskType.matchstick
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.allowsRotation = false
     }
     
     required init?(coder aDecoder: NSCoder) {

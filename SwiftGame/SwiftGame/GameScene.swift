@@ -230,7 +230,7 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
         case BitMaskType.panda | BitMaskType.bombo:
             //熊猫撞到炸弹
             self.soundManager.playBoom()
-            self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 650)
+            self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 450)
             if contact.bodyB.categoryBitMask == BitMaskType.bombo{
                 if let bombo = contact.bodyB.node as? Bombo{
                     bombo.bombo()
@@ -245,21 +245,18 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             break
         case BitMaskType.panda | BitMaskType.matchstick:
             //熊猫撞到火柴人
+            self.soundManager.playFirePunch()
+            var matchstick : Matchstick
             if contact.bodyB.categoryBitMask == BitMaskType.matchstick{
                 
-                var matchstick : Matchstick
-                
-                if let tempMatchstick = contact.bodyB.node as? Matchstick{
-                    matchstick = tempMatchstick
-                }else{
-                    matchstick = contact.bodyA.node as! Matchstick
-                }
-                
-                matchstick.physicsBody?.isDynamic = true
-                matchstick.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
-                self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
-                matchstick.firePunch()
+                matchstick = contact.bodyB.node as! Matchstick
+            }else{
+                matchstick = contact.bodyA.node as! Matchstick
             }
+            matchstick.physicsBody?.isDynamic = true
+            matchstick.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
+            self.panda.physicsBody?.velocity = CGVector(dx: 0, dy: 400)
+            matchstick.firePunch()
             break
         default:
             break

@@ -32,6 +32,9 @@ class SoundManager: SKNode {
     //播放游戏结束的动作音效
     let loseAct = SKAction.playSoundFileNamed("lose.mp3", waitForCompletion: false)
     
+    //播放升龙拳的动作音效
+    let firePunchAct = SKAction.playSoundFileNamed("firePunch.m4a", waitForCompletion: false)
+    
     //播放背景音乐的音效
     func playBackGround(){
         //获取bg.mp3文件地址
@@ -74,5 +77,9 @@ class SoundManager: SKNode {
     
     func playBoom(){
         self.run(self.boomAct)
+    }
+    
+    func playFirePunch(){
+        self.run(self.firePunchAct)
     }
 }
