@@ -46,6 +46,8 @@ class Matchstick : SKSpriteNode{
     //升龙拳
     func firePunch(){
         self.removeAllActions()
-        self.run(SKAction.animate(with: self.matchstickFrames, timePerFrame: 0.04))
+        self.run(SKAction.animate(with: self.matchstickFrames, timePerFrame: 0.04)) {[weak self] in
+            self?.removeFromParent()
+        }
     }
 }

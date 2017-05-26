@@ -9,8 +9,11 @@
 import SpriteKit
 
 class Platform: SKNode {
+    
     var width : CGFloat = 0.0
     var heigth  : CGFloat = 10.0
+    
+    var matchstick : Matchstick = Matchstick()
    
     func onCreate(arrSprite : [SKSpriteNode]){
         for platform in arrSprite{

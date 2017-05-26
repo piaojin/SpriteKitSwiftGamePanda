@@ -12,11 +12,11 @@ class Bombo : SKSpriteNode{
     //跑🏃
     let bomboAtlas : SKTextureAtlas = SKTextureAtlas(named: "bombo.atlas")
     var bomboFrames : [SKTexture] = [SKTexture]()
-    let defaultSize = SKTexture(imageNamed: "Bomb").size()
+    let defaultSize = SKTexture(imageNamed: "bombo").size()
     
     init(){
 //        let texture = self.bomboAtlas.textureNamed("bombo_01")
-        let texture = SKTexture(imageNamed: "Bomb")
+        let texture = SKTexture(imageNamed: "bombo")
 
         super.init(texture: texture, color: UIColor.white, size: self.defaultSize)
         

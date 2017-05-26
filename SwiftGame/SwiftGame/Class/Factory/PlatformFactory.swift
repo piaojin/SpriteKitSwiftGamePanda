@@ -81,6 +81,7 @@ class PlatformFactory: SKNode {
             //加入火柴人
             let matchstick = Matchstick()
             matchstick.position = CGPoint(x:platform.width / 2.0,y:matchstick.size.height / 2.0)
+            platform.matchstick = matchstick
             platform.addChild(matchstick)
         }else{
             //加入苹果

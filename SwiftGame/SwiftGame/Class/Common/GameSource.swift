@@ -13,6 +13,6 @@ struct GameSource {
     static let d : CGFloat = 40000
     static let speedA : CGFloat = 17
     static let speedB : CGFloat = 20
-    static let speedC : CGFloat = 25
-    static let speedD : CGFloat = 35
+    static let speedC : CGFloat = 20
+    static let speedD : CGFloat = 20
 }

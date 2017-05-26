@@ -202,18 +202,23 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             break
             //熊猫掉到草块上
         case BitMaskType.panda | BitMaskType.platform:
+
+            let platform : Platform
+
+            if contact.bodyB.categoryBitMask == BitMaskType.platform{
+                platform = contact.bodyB.node as! Platform
+            }else {
+                platform = contact.bodyA.node as! Platform
+            }
+
             self.soundManager.playHitPlatform()
             self.panda.run()
             if (self.moveSpeed - GameSource.speedB) >= 0{
                 self.platformFactory.midCount = 2
                 self.platformFactory.M = 80
-                if contact.bodyB.categoryBitMask == BitMaskType.platform{
-                    contact.bodyB.isDynamic = true
-                    contact.bodyB.allowsRotation = true
-                }else{
-                    contact.bodyA.isDynamic = true
-                    contact.bodyA.allowsRotation = true
-                }
+                platform.physicsBody?.isDynamic = true
+                platform.physicsBody?.allowsRotation = true
+                platform.matchstick.physicsBody?.isDynamic = true
             }
             break
             //熊猫吃到苹果
@@ -239,7 +244,12 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             }else{
                 if let bombo = contact.bodyA.node as? Bombo{
                     bombo.bombo()
-                    bombo.parent?.physicsBody?.isDynamic = true
+                    guard let tempPlatform = bombo.parent else{
+                        return
+                    }
+                    let platform = tempPlatform as! Platform
+                    platform.physicsBody?.isDynamic = true
+                    platform.matchstick.physicsBody?.isDynamic = true
                 }
             }
             break
@@ -248,7 +258,6 @@ class GameScene: SKScene ,UpdatePlatform,SKPhysicsContactDelegate{
             self.soundManager.playFirePunch()
             var matchstick : Matchstick
             if contact.bodyB.categoryBitMask == BitMaskType.matchstick{
-                
                 matchstick = contact.bodyB.node as! Matchstick
             }else{
                 matchstick = contact.bodyA.node as! Matchstick

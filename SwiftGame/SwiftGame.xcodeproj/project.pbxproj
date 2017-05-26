@@ -380,7 +380,7 @@
 				TargetAttributes = {
 					CA2E63D91EC3F29E00A9144F = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = KQ97X6WRL9;
+						DevelopmentTeam = 7L78VP2H52;
 						ProvisioningStyle = Automatic;
 					};
 					CA2E63F31EC3F29E00A9144F = {
@@ -634,11 +634,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KQ97X6WRL9;
+				DEVELOPMENT_TEAM = 7L78VP2H52;
 				INFOPLIST_FILE = SwiftGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = piaojin.SwiftGame;
+				PRODUCT_BUNDLE_IDENTIFIER = piaojin.swift.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -648,11 +648,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KQ97X6WRL9;
+				DEVELOPMENT_TEAM = 7L78VP2H52;
 				INFOPLIST_FILE = SwiftGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = piaojin.SwiftGame;
+				PRODUCT_BUNDLE_IDENTIFIER = piaojin.swift.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
